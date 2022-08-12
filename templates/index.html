@@ -1,0 +1,23 @@
+{% include 'base.html' %}
+
+{% block content %}
+
+    <div class="container mt-5">
+
+        <h1 class="text-center">Currency Converter</h1>
+        <div class="row">
+            <div class="col-centered col-8 mt-4">
+                <form method="post" action="{{ url_for('index') }}" class="form-inline" id="convert-form">
+                    {{ form.csrf_token }}
+                    <div class="form-group input-group-lg input-group">
+                        {{ form.from_(placeholder="From", class="form-control") }}
+                        {{ form.amount(placeholder="Amount", class="form-control col-2") }}
+                        {{ form.to(placeholder="To", class="form-control") }}
+                        {{ form.submit(class="btn btn-outline-dark btn-lg btn-block col-12") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

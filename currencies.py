@@ -4,23 +4,20 @@ import os
 
 load_dotenv()
 
-# to_ = "GBP"
-# from_ = "EUR"
-# amount = 100
 
+def create_currency_list():
+    currencies = []
 
-def convert(to_, from_, amount):
-    url = f"https://api.apilayer.com/exchangerates_data/convert?to={to_}&from={from_}&amount={amount}"
-
+    url = f"https://api.apilayer.com/exchangerates_data/symbols"
     payload = {}
     headers = {
         "apikey": os.getenv('API_KEY')
     }
-
     response = requests.get(url, headers=headers, data=payload)
 
     result = response.json()
-    print(result['result'])
 
-# convert(to_, from_, amount)
+    for key, value in result['symbols'].items():
+        currencies.append(key)
 
+    return currencies
