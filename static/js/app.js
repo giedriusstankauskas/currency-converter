@@ -1,5 +1,5 @@
 $(document).on('submit', '#convert-form', function (e) {
-    const myDiv = document.getElementById('success')
+    const myDiv = document.getElementById('result-span')
 
     let myHeaders = new Headers();
     myHeaders.append("apikey", key);
@@ -25,7 +25,9 @@ $(document).on('submit', '#convert-form', function (e) {
             "user_subject": $("#amount").val()
         },
         success: function () {
-            document.getElementById('success').style.visibility = 'visible';
+            document.getElementById('text-span').innerHTML = $("#amount").val()+" "+$("#from").val()+" = ";
+            document.getElementById('text-span-two').innerHTML = $("#to").val();
+            document.getElementById('result-div').style.visibility = 'visible';
         },
     })
 });

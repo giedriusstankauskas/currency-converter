@@ -18,4 +18,17 @@
 body {
     background-image: url("../images/currency2.jpg");
     background-size: cover;
+    font-family: 'Roboto Mono', monospace;
+}
+
+.rubik-font {
+    font-family: 'Roboto Mono', monospace;
+}
+
+#result-div {
+    margin-top: 1rem;
+    font-size: 30px;
+    background-color: white;
+    opacity: 0.8;
+    border-radius: 10%;
 }
