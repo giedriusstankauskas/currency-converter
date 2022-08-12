@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = "whatever-secret-key"
+app.secret_key = os.getenv('SECRET_KEY')
 
 
 @app.route('/', methods=["GET", "POST"])
