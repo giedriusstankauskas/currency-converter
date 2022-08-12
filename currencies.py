@@ -10,14 +10,10 @@ def create_currency_list():
 
     url = f"https://api.apilayer.com/exchangerates_data/symbols"
     payload = {}
-    headers = {
-        "apikey": os.getenv('API_KEY')
-    }
+    headers = {"apikey": os.getenv('API_KEY')}
     response = requests.get(url, headers=headers, data=payload)
-
     result = response.json()
-
     for key, value in result['symbols'].items():
-        currencies.append(key)
-
+        val = f'{value} {key}'
+        currencies.append((key, val))
     return currencies

@@ -20,7 +20,4 @@ def convert(to_, from_, amount):
     response = requests.get(url, headers=headers, data=payload)
 
     result = response.json()
-    print(result['result'])
-
-# convert(to_, from_, amount)
-
+    return round(result['result'], 2)
